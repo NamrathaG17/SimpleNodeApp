@@ -8,7 +8,7 @@ const tools = {
   uppercase: { label: "Uppercase", fn: (s) => s.toUpperCase() },
 
   lowercase: { label: "Lowercase", fn: (s) => s.toLowerCase() },
-  
+
   reverse: { label: "Reverse text", fn: (s) => [...s].reverse().join("") },
   
   palindrome: {
@@ -70,7 +70,7 @@ const server = http.createServer((req, res) => {
         const params = new URLSearchParams(body);
         const text = params.get("text") || "";
         const action = params.get("action") || "uppercase";
-        const tool = tools[action];
+        const tool = Object.hasOwn(tools, action) ? tools[action] : undefined;
         const output = tool ? tool.fn(text) : "Unknown tool selected.";
         res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
         res.end(page(text, action, output));
