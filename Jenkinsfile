@@ -3,6 +3,7 @@ pipeline {
 
     environment{
         IMAGE_NAME = 'simple-node-app'
+        REPO_NAME = 'bee17'
         VERSION = 'V1'
     }
 
@@ -31,8 +32,29 @@ pipeline {
 
         stage('Pushing docker image') {
             steps{
-                echo "pushed image to docker successfully!"
+                withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'DockerPwd', usernameVariable: 'DockerUname')]) {
+                    bat "docker tag ${IMAGE_NAME} ${REPO_NAME}/${IMAGE_NAME}:${VERSION}"
+                    bat "docker push "
+                    echo "pushed image to docker successfully!"
+                }
             }
+        }
+    }
+
+    post{
+        always{
+            cleanWs()
+            deleteDir()
+            bat 'docker logout'
+            echo 'Cleaning up resources...'
+        }
+
+        success{
+               echo "Pipeline done seamlessly!!!" 
+        }
+
+        failure{
+                echo "Pipeline failed, check logs!!"
         }
     }
 }
