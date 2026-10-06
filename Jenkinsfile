@@ -33,6 +33,7 @@ pipeline {
         stage('Pushing docker image') {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'DockerPwd', usernameVariable: 'DockerUname')]) {
+                    bat "docker login -u ${DockerUname} -p ${DockerPwd}"
                     bat "docker tag ${IMAGE_NAME} ${REPO_NAME}/${IMAGE_NAME}:${VERSION}"
                     bat "docker push ${REPO_NAME}/${IMAGE_NAME}:${VERSION}"
                     echo "pushed image to docker successfully!"
