@@ -4,7 +4,7 @@ pipeline {
     environment{
         IMAGE_NAME = 'simple-node-app'
         REPO_NAME = 'bee17'
-        VERSION = 'V1'
+        VERSION = 'V2'
     }
 
     stages{
