@@ -10,19 +10,22 @@ pipeline {
         stage('Install dependency') {
             steps{
                 bat "npm install"
-                echo 'Dependencies installed'
+                echo 'Dependencies installed!!!'
             }
         }
 
         stage('Testing stage') {
             steps{
                 bat "node --test"
+                echo "Test passed!!!"
             }
         }
 
         stage('Build docker image') {
             steps{
                 bat "docker build -t ${IMAGE_NAME} ."
+                echo "Image ${IMAGE_NAME} built successfully"
+
             }
         }
 
