@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>String Tools</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <h1>String Tools</h1>
+  <form method="POST" action="/">
+    <label for="text">Insert your text here</label>
+    <textarea id="text" name="text" placeholder="Type or paste text here">{{INPUT}}</textarea>
+
+    <label for="action">Select an option from below list</label>
+    <select id="action" name="action">{{OPTIONS}}</select>
+
+    <button type="submit">Convert</button>
+  </form>
+  {{RESULT}}
+</main>
+</body>
+</html>

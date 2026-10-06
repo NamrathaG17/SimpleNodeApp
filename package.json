@@ -1,0 +1,32 @@
+{
+  "name": "simplenodeapp",
+  "version": "1.0.0",
+  "description": "Node JS app for Jenkins multi branch pipeline",
+  "main": "app.js",
+  "scripts": {
+    "lint": "npx eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NamrathaG17/SimpleNodeApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/NamrathaG17/SimpleNodeApp/issues"
+  },
+  "homepage": "https://github.com/NamrathaG17/SimpleNodeApp#readme",
+  "dependencies": {
+    "axios": "^1.20.0",
+    "eslint-plugin-import": "^2.32.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-config-strongloop": "^2.1.0",
+    "globals": "^17.13.0"
+  }
+}
